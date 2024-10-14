@@ -11948,69 +11948,7 @@ input[type="number"] {
 /* ============================ Testimonial Section Css End ======================= */
 
 
-/* ============================  Our team ==========================================  */
-.team-section h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-}
 
-.team-section p {
-  color: #777;
-}
-
-.team-item {
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 30px;
-  transition: transform 0.3s ease;
-}
-
-.team-item:hover {
-  transform: translateY(-10px);
-}
-
-.team-item img {
-  width: 82%;
-  border-radius: 4px;
-  margin-bottom: 15px;
-  height:269px;
-}
-
-.team-item__content {
-  text-align: center;
-}
-
-.team-item__content h5 {
-  font-size: 1.25rem;
-  margin: 10px 0 5px;
-}
-
-.team-item__content p {
-  color: #6c757d;
-  margin-bottom: 10px;
-}
-
-.social-icon {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.social-icon__f,
-.social-icon__t,
-.social-icon__in,
-.social-icon__insta {
-  font-size: 20px;
-  font-weight: bold;
-  margin-right: 5px;
-}
-
-.team-item a.arrow-link {
-  color: #007bff;
-  text-decoration: none;
-  font-size: 1.5rem;
-}
 
 
 /* accrodian */
