@@ -12015,3 +12015,7 @@ input[type="number"] {
 
 /* accrodian */
 
+.faq_accrodian_items h2 button{color: hsl(var(--heading-color)); font-family: var(--heading-font); font-weight: 600; font-size: 20px; background: transparent !important;}
+.accordion{background: transparent !important;}
+.accordion-body p{color: hsl(var(--body-color));}
+.faq_accrodian_items h2 button::after{color: hsl(var(--heading-color));}
