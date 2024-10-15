@@ -4091,15 +4091,15 @@ input[type="number"] {
 
 @media screen and (max-width: 1199px) {
   .footer-section {
-    padding: 120px 0;
-    background-color: hsl(var(--black)) !important;
+    padding: 200px 0 80px 0;
+    background-color: hsl(var(--static-black)) !important;
     background-image: none;
   }
 }
 
 @media screen and (max-width: 991px) {
   .footer-section {
-    padding: 80px 0;
+    padding: 200px 0 80px 0;
   }
 }
 
@@ -9707,7 +9707,7 @@ input[type="number"] {
 
 [data-theme="light"] .footer-section {
   background-image: url(../images/shapes/footer-bg-dark.png);
-  background-color: var(--dark-black-one);
+  background-color: hsl(var(--static-black));
 }
 
 [data-theme="light"] .bottom-footer {
