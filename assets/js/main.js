@@ -983,7 +983,7 @@
 
     // ========================= Preloader Js Start =====================
     $(window).on("load", function() {
-        $('.loader-mask').fadeOut();
+        $('.loader-mask').fadeOut(2000);
     })
     // ========================= Preloader Js End=====================
 

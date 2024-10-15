@@ -3225,63 +3225,110 @@ input[type="number"] {
   background-color: hsl(var(--white));
   z-index: 99999;
 }
-
 .loader-mask .loader {
   position: absolute;
-  left: 50%;
   top: 50%;
-  width: 80px;
-  height: 80px;
-  font-size: 0;
-  display: inline-block;
-  margin: -40px 0 0 -40px;
-  text-indent: -9999em;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
+  left: 50%;
+  z-index: 10;
+  width: 160px;
+  height: 100px;
+  margin-left: -80px;
+  margin-top: -50px;
+  border-radius: 5px;
+  background: #6e26e2;
+  animation: dot1_ 3s cubic-bezier(0.55,0.3,0.24,0.99) infinite;
 }
 
-.loader-mask .loader div {
-  background-color: hsl(var(--main));
-  display: inline-block;
-  float: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 80px;
-  height: 80px;
-  opacity: 0.6;
-  border-radius: 50%;
-  -webkit-animation: ballPulseDouble 2s ease-in-out infinite;
-  animation: ballPulseDouble 2s ease-in-out infinite;
+.loader-mask .loader:nth-child(2) {
+  z-index: 11;
+  width: 150px;
+  height: 90px;
+  margin-top: -45px;
+  margin-left: -75px;
+  border-radius: 3px;
+  background-image: linear-gradient(to bottom,#e77cff,#975bff);
+  animation-name: dot2_;
 }
 
-.loader-mask .loader div:last-child {
-  -webkit-animation-delay: -1s;
-  animation-delay: -1s;
+.loader-mask .loader:nth-child(3) {
+  z-index: 12;
+  width: 40px;
+  height: 20px;
+  margin-top: 50px;
+  margin-left: -20px;
+  border-radius: 0 0 5px 5px;
+  background: #50209d;
+  animation-name: dot3_;
 }
 
-@-webkit-keyframes ballPulseDouble {
-  0%,
-  100% {
-    -webkit-transform: scale(0);
-    transform: scale(0);
+@keyframes dot1_ {
+  3%,97% {
+    width: 160px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -80px;
   }
-  50% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
+
+  30%,36% {
+    width: 80px;
+    height: 120px;
+    margin-top: -60px;
+    margin-left: -40px;
+  }
+
+  63%,69% {
+    width: 40px;
+    height: 80px;
+    margin-top: -40px;
+    margin-left: -20px;
   }
 }
 
-@keyframes ballPulseDouble {
-  0%,
-  100% {
-    -webkit-transform: scale(0);
-    transform: scale(0);
+@keyframes dot2_ {
+  3%,97% {
+    height: 90px;
+    width: 150px;
+    margin-left: -75px;
+    margin-top: -45px;
   }
-  50% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
+
+  30%,36% {
+    width: 70px;
+    height: 96px;
+    margin-left: -35px;
+    margin-top: -48px;
+  }
+
+  63%,69% {
+    width: 32px;
+    height: 60px;
+    margin-left: -16px;
+    margin-top: -30px;
+  }
+}
+
+@keyframes dot3_ {
+  3%,97% {
+    height: 20px;
+    width: 40px;
+    margin-left: -20px;
+    margin-top: 50px;
+  }
+
+  30%,36% {
+    width: 8px;
+    height: 8px;
+    margin-left: -5px;
+    margin-top: 49px;
+    border-radius: 8px;
+  }
+
+  63%,69% {
+    width: 16px;
+    height: 4px;
+    margin-left: -8px;
+    margin-top: -37px;
+    border-radius: 10px;
   }
 }
 
