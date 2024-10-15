@@ -2737,6 +2737,12 @@ input[type="number"] {
     font-size: 0.9375rem;
   }
 }
+.common-forgot_password {text-align: right;}
+.common-forgot_password a{color: #743bf2;}
+.common-forgot_password a:hover{color: #c54ef0;}
+@media screen and (max-width: 768px) {
+  .common-forgot_password {text-align: left;}
+}
 
 /* Custom Checkbox & Radio Css End */
 
@@ -8972,7 +8978,9 @@ input[type="number"] {
 }
 
 .account-content {
-  max-width: 700px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
   
 }
 
