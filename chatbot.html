@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot</title>
+    <link rel="shortcut icon" href="assets/images/logo/favicon-two.png" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+    <!-- Slick -->
+    <link rel="stylesheet" href="assets/css/slick.css" />
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css" />
+    <!-- line awesome -->
+    <link rel="stylesheet" href="assets/css/line-awesome.min.css" />
+    <!-- Main css -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+      .card {
+        width: 300px;
+        border: none;
+        border-radius: 15px;
+        padding-bottom: 7px;
+      }
+      .adiv {
+        background-image: linear-gradient(to right, #a948f1, #7b3df1);
+        border-radius: 15px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        font-size: 12px;
+        height: 46px;
+      }
+      .chatBody {
+        height: 400px;
+        overflow-y: auto;
+        scrollbar-width: none;
+      }
+      .chatBody::-webkit-scrollbar {
+        display: none;
+      }
+      .ai_chat {
+        border: none;
+        background: #e8cbff;
+        font-size: 10px;
+        border-radius: 20px;
+        color: #000;
+      }
+      .user_chat {
+        font-size: 10px;
+        border-radius: 20px;
+        background-color: #ccb2ff;
+      }
+      .user_chat .text-muted {
+        color: #000 !important;
+      }
+      .myvideo img {
+        border-radius: 20px;
+      }
+      .dot {
+        font-weight: bold;
+      }
+      .form-control {
+        border-radius: 12px;
+        border: 1px solid #f0f0f0;
+        font-size: 8px;
+      }
+      .form-control:focus {
+        box-shadow: none;
+      }
+      .form-control::placeholder {
+        font-size: 8px;
+        color: #c4c4c4;
+      }
+      /* msg from user */
+      .messageBox {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #823ff1;
+        padding: 0 15px;
+        border-radius: 10px;
+      }
+      .messageBox:focus-within {
+        border: 1px solid rgb(110, 110, 110);
+      }
+      .tooltip {
+        position: absolute;
+        top: -40px;
+        display: none;
+        opacity: 0;
+        color: white;
+        font-size: 10px;
+        text-wrap: nowrap;
+        background-color: #000;
+        padding: 6px 10px;
+        border: 1px solid #3c3c3c;
+        border-radius: 5px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.596);
+        transition: all 0.3s;
+      }
+      #userInput {
+        height: 100%;
+        width: 100%;
+        margin-right: 10px;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        color: white;
+        font-size: 14px;
+        font-weight: 200 !important;
+      }
+      #messageInput::placeholder {
+        font-size: 14px;
+        font-weight: 200 !important;
+      }
+      #messageInput:focus ~ #sendButton svg path,
+      #messageInput:valid ~ #sendButton svg path {
+        fill: #ffffff;
+        stroke: rgb(255, 255, 255);
+      }
+
+      #sendButton {
+        width: fit-content;
+        height: 100%;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      #sendButton svg {
+        height: 18px;
+        transition: all 0.3s;
+      }
+      #sendButton svg path {
+        transition: all 0.3s;
+      }
+      #sendButton:hover svg path {
+        fill: #ffffff;
+        stroke: white;
+      }
+      .chatbot_close {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div id="chatbox">
+      <div class="botMessage">Hello! How can I help you with our website?</div>
+    </div>
+
+    <input type="text" id="userInput" placeholder="Type your question..." /> -->
+    <div class="container d-flex justify-content-center">
+      <div class="card mt-5" id="chatbox">
+        <div
+          class="d-flex flex-row justify-content-between p-3 adiv text-white"
+        >
+          <i class="fas fa-chevron-left"></i>
+          <span class="pb-3">Live chat with us</span>
+          <i class="fas fa-times chatbot_close"></i>
+        </div>
+        <div class="chatBody">
+          <div class="d-flex flex-row p-3">
+            <div class="d-flex justify-content-center align-items-center pe-1">
+              <img src="assets/images/icons/ai.png" width="35" height="35" />
+            </div>
+            <div class="ai_chat ml-2 p-3 botMessage" id="botmsg_mn">
+              Hello! How can I help you with our website?
+            </div>
+          </div>
+
+          <div
+            class="d-flex flex-row justify-content-end p-3"
+            id="user_chat_main"
+          >
+            <div class="user_chat mr-2 p-3">
+              <span class="text-muted userMessage" id="userMessage"></span>
+            </div>
+            <div class="d-flex justify-content-center align-items-center ps-1">
+              <img src="assets/images/icons/user.png" width="35" height="35" />
+            </div>
+          </div>
+        </div>
+
+        <!-- message form user -->
+        <div class="messageBox">
+          <input
+            required=""
+            placeholder="Message..."
+            type="text"
+            id="userInput"
+          />
+          <button id="sendButton" onclick="printUsermsg()">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 664 663"
+            >
+              <path
+                fill="none"
+                d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"
+              ></path>
+              <path
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="33.67"
+                stroke="#ffffff"
+                d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- message form user -->
+      </div>
+    </div>
+
+    <script>
+      // Predefined responses for your website-related questions
+      const responses = {
+        "what is your website about":
+          "Our website offers a variety of digital services including web development, content writing, and digital marketing.",
+        "how can i contact you":
+          "You can contact us through the contact form on our website or email us at contact@example.com.",
+        "what services do you offer":
+          "We offer web development, eLearning, SEO, digital marketing, graphic design, and more.",
+        "how can i register":
+          "To register, go to the signup page and fill out the required details.",
+        "what is redcube":
+          "REDCUBE is a digital services company focusing on eLearning, web development, and business management services.",
+      };
+
+      function printUsermsg() {
+        const userInput = document.getElementById("userInput").value;
+        // Create a new div for the message
+        const messageBox = document.createElement("div");
+        var sourcediv = messageBox.document.getElementById("userMessage");
+        document.getElementById("userMessage").innerHTML = sourcediv;
+        messageBox.innerText = userInput;
+
+        // Append the new message div to the output container
+        document.getElementById("user_chat_main").appendChild(messageBox);
+
+        // Clear the input field after printing the text
+        document.getElementById("userInput").value = "";
+      }
+      // Function to handle user input and respond
+      function getBotResponse(input) {
+        input = input.toLowerCase();
+        return (
+          responses[input] ||
+          "I'm sorry, I don't have an answer for that. Please try asking something else."
+        );
+      }
+
+      // Function to update chat with user and bot messages
+      function updateChat(userMessage, botMessage) {
+        const chatbox = document.getElementById("chatbox");
+
+        // Add user message to chat
+        const userDiv = document.createElement("div");
+        userDiv.classList.add("userMessage");
+        userDiv.textContent = userMessage;
+        chatbox.appendChild(userDiv);
+
+        // Add bot message to chat
+        const botDiv = document.createElement("div");
+        document.getElementById("botmsg_mn").botDiv.classList.add("botMessage");
+        botDiv.textContent = botMessage;
+        chatbox.appendChild(botDiv);
+
+        // Scroll to the bottom
+        chatbox.scrollTop = chatbox.scrollHeight;
+      }
+
+      // Handle user input
+      document
+        .getElementById("userInput")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            const userInput = e.target.value.trim();
+            if (userInput) {
+              const botResponse = getBotResponse(userInput);
+              updateChat(userInput, botResponse);
+              e.target.value = "";
+            }
+          }
+        });
+    </script>
+
+    <!-- Jquery js -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap Bundle Js -->
+    <script src="assets/js/boostrap.bundle.min.js"></script>
+    <!-- CountDown -->
+    <script src="assets/js/countdown.js"></script>
+    <!-- counter up -->
+    <script src="assets/js/counterup.min.js"></script>
+    <!-- Slick js -->
+    <script src="assets/js/slick.min.js"></script>
+    <!-- magnific popup -->
+    <script src="assets/js/jquery.magnific-popup.js"></script>
+    <!-- apex chart -->
+    <script src="assets/js/apexchart.js"></script>
+    <!-- marquee -->
+    <script src="assets/js/marquee.min.js"></script>
+
+    <!-- main js -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
