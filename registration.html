@@ -78,8 +78,6 @@
           </div>
         </div>
         <div class="account__right padding-t-120 flx-align">
-
-          
           <div class="dark-light-mode">
             <!-- Light Dark Mode -->
             <div class="theme-switch-wrapper position-relative">
@@ -116,11 +114,11 @@
               Create A Free Account
             </h4>
 
-            <form action="#">
+            <form onsubmit="return validateForm()">
               <div class="row gy-4">
                 <div class="col-12">
                   <label
-                    for="name"
+                    for="userName"
                     class="form-label mb-2 font-18 font-heading fw-600"
                     >Full Name</label
                   >
@@ -128,17 +126,20 @@
                     <input
                       type="text"
                       class="common-input common-input--bg common-input--withIcon"
-                      id="name"
+                      id="userName"
                       placeholder="Your full name"
                     />
                     <span class="input-icon"
                       ><img src="assets/images/icons/user-icon.svg" alt=""
                     /></span>
+                    <div class="inputerrors">
+                      <span id="nameError"></span>
+                    </div>
                   </div>
                 </div>
                 <div class="col-12">
                   <label
-                    for="email"
+                    for="userEmail"
                     class="form-label mb-2 font-18 font-heading fw-600"
                     >Email</label
                   >
@@ -146,18 +147,21 @@
                     <input
                       type="email"
                       class="common-input common-input--bg common-input--withIcon"
-                      id="email"
-                      placeholder="infoname@mail.com"
+                      id="userEmail"
+                      placeholder="info@gmail.com"
                     />
                     <span class="input-icon"
                       ><img src="assets/images/icons/envelope-icon.svg" alt=""
                     /></span>
+                    <div class="inputerrors">
+                      <span id="emailError"></span>
+                    </div>
                   </div>
                 </div>
 
                 <div class="col-12">
                   <label
-                    for="your-password"
+                    for="userPassword"
                     class="form-label mb-2 font-18 font-heading fw-600"
                     >Password</label
                   >
@@ -165,14 +169,17 @@
                     <input
                       type="password"
                       class="common-input common-input--bg common-input--withIcon"
-                      id="your-password"
+                      id="userPassword"
                       placeholder="6+ characters, 1 Capital letter"
                     />
                     <span
                       class="input-icon toggle-password cursor-pointer"
-                      id="#your-password"
+                      id="#userPassword"
                       ><img src="assets/images/icons/lock-icon.svg" alt=""
                     /></span>
+                    <div class="inputerrors">
+                      <span id="passwordError"></span>
+                    </div>
                   </div>
                 </div>
                 <div class="col-12">
@@ -198,6 +205,7 @@
                 <div class="col-12">
                   <button
                     type="submit"
+                    id="googleLoginBtn"
                     class="btn btn-outline-light btn-lg-icon btn-lg w-100 pill"
                   >
                     <span class="icon icon-left"
@@ -225,6 +233,56 @@
       </section>
       <!-- ================================== registration Page End =========================== -->
     </main>
+    <script>
+      function validateForm() {
+        document.getElementById("nameError").innerHTML = "";
+        document.getElementById("emailError").innerHTML = "";
+        document.getElementById("passwordError").innerHTML = "";
+        // Get input values
+        var name = document.getElementById("userName").value.trim();
+        var email = document.getElementById("userEmail").value.trim();
+        var password = document.getElementById("userPassword").value.trim();
+
+        // var isValid = true;
+        var namepattert = /^[a-zA-Z\s]+$/;
+        var emailpattert = /^\S+@\S+\.\S+$/;
+        var passwordpattern =
+          /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
+        // Name validation
+        if (name === "") {
+          document.getElementById("nameError").innerHTML = "Name is required.";
+          return false;
+        } else if (!namepattert.test(name)) {
+          document.getElementById("nameError").innerHTML =
+            "Name can only contain letters and spaces.";
+          return false;
+        }
+        // Email validation
+        else if (email === "") {
+          document.getElementById("emailError").innerHTML =
+            "Email is required.";
+          return false;
+        } else if (!emailpattert.test(email)) {
+          document.getElementById("emailError").innerHTML =
+            "Please enter a valid email address.";
+          return false;
+        }
+        // pass validation
+        else if (password === "") {
+          document.getElementById("passwordError").innerHTML =
+            "Password is required.";
+          return false;
+        } else if (!passwordpattern.test(password)) {
+          document.getElementById("passwordError").innerHTML =
+            "Password must be at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character.";
+          return false;
+        } else {
+          return true;
+          console.log("success");
+          window.location.href = "login.html";
+        }
+      }
+    </script>
 
     <!-- Jquery js -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>

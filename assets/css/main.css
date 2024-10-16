@@ -2454,7 +2454,7 @@ button:focus {
 .input-icon {
   position: absolute;
   right: 24px;
-  top: 50%;
+  top: 35%;
   transform: translateY(-50%);
   color: hsl(var(--heading-color));
   font-size: 0.875rem;
@@ -12019,3 +12019,5 @@ input[type="number"] {
 .accordion{background: transparent !important;}
 .accordion-body p{color: hsl(var(--body-color));}
 .faq_accrodian_items h2 button::after{color: hsl(var(--heading-color));}
+
+.inputerrors span{font-size: 12px; color: rgb(255, 46, 46); font-weight: 200 !important; margin-left: 10px;}
