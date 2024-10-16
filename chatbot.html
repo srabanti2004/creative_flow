@@ -226,7 +226,6 @@
     </div>
 
     <script>
-      // Predefined responses for your website-related questions
       const responses = {
         "what is your website about":
           "Our website offers a variety of digital services including web development, content writing, and digital marketing.",
@@ -242,19 +241,14 @@
 
       function printUsermsg() {
         const userInput = document.getElementById("userInput").value;
-        // Create a new div for the message
         const messageBox = document.createElement("div");
         var sourcediv = messageBox.document.getElementById("userMessage");
         document.getElementById("userMessage").innerHTML = sourcediv;
         messageBox.innerText = userInput;
-
-        // Append the new message div to the output container
         document.getElementById("user_chat_main").appendChild(messageBox);
 
-        // Clear the input field after printing the text
         document.getElementById("userInput").value = "";
       }
-      // Function to handle user input and respond
       function getBotResponse(input) {
         input = input.toLowerCase();
         return (
@@ -262,28 +256,20 @@
           "I'm sorry, I don't have an answer for that. Please try asking something else."
         );
       }
-
-      // Function to update chat with user and bot messages
       function updateChat(userMessage, botMessage) {
         const chatbox = document.getElementById("chatbox");
-
-        // Add user message to chat
         const userDiv = document.createElement("div");
         userDiv.classList.add("userMessage");
         userDiv.textContent = userMessage;
         chatbox.appendChild(userDiv);
 
-        // Add bot message to chat
         const botDiv = document.createElement("div");
         document.getElementById("botmsg_mn").botDiv.classList.add("botMessage");
         botDiv.textContent = botMessage;
         chatbox.appendChild(botDiv);
-
-        // Scroll to the bottom
         chatbox.scrollTop = chatbox.scrollHeight;
       }
 
-      // Handle user input
       document
         .getElementById("userInput")
         .addEventListener("keypress", function (e) {
