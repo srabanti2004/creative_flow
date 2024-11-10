@@ -386,7 +386,7 @@ include "header.php";
               </ul>
             </div>
             <div class="flx-align gap-2">
-              <a href="product-details.html" class="btn btn-outline-light pill">Explore it</a>
+              <a href="contact.php" class="btn btn-outline-light pill">Order to create</a>
             </div>
           </div>
         </div>
@@ -429,7 +429,7 @@ include "header.php";
               </ul>
             </div>
             <div class="flx-align gap-2">
-              <a href="product-details.html" class="btn btn-outline-light pill">Explore it</a>
+              <a href="contact.php" class="btn btn-outline-light pill">Order to create</a>
             </div>
           </div>
         </div>
@@ -472,7 +472,7 @@ include "header.php";
               </ul>
             </div>
             <div class="flx-align gap-2">
-              <a href="product-details.html" class="btn btn-outline-light pill">Explore it</a>
+              <a href="contact.php" class="btn btn-outline-light pill">Order to create</a>
             </div>
           </div>
         </div>
@@ -515,7 +515,7 @@ include "header.php";
               </ul>
             </div>
             <div class="flx-align gap-2">
-              <a href="product-details.html" class="btn btn-outline-light pill">Explore it</a>
+              <a href="contact.php" class="btn btn-outline-light pill">Order to create</a>
             </div>
           </div>
         </div>
@@ -786,8 +786,8 @@ include "header.php";
                 <p class="support-content__desc">
                   Wanna talk? Send us a message
                 </p>
-                <a href="mailto:infomail@office.com"
-                  class="btn btn-static-black btn-lg fw-300 pill">infomail@office.com</a>
+                <a href="mailto:webdev@creative-flow.in"
+                  class="btn btn-static-black btn-lg fw-300 pill">webdev@creative-flow.in</a>
               </div>
             </div>
           </div>

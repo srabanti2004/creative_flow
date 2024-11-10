@@ -141,7 +141,7 @@
             </div>
           </div>
 
-          <a href="about-three.html" class="mt-48 btn btn-black btn-lg">
+          <a href="index.php" class="mt-48 btn btn-black btn-lg">
             More About Us
           </a>
         </div>
@@ -478,7 +478,7 @@
           </p>
           <div class="search-box">
             <input type="text" class="common-input common-input--lg shadow-sm" placeholder="Enter Mail" />
-            <button type="submit" class="btn btn-main btn-lg">
+            <button type="submit" class="btn btn-main btn-lg d-flex justify-content-center align-items-center">
               <span class="d-sm-block d-none">Subscribe Now</span>
               <span class="icon d-sm-none d-block"><i class="fas fa-bell"></i></span>
             </button>
@@ -493,7 +493,7 @@
           <img src="assets/images/thumbs/newsletter-thumb.png" alt="" class="newsletter-three-content__img" />
           <h3 class="mb-3">Support 24/7</h3>
           <p class="mb-24 font-18">Wanna talk? Send us a message</p>
-          <a href="mailto:azency@office.com" class="btn btn-outline-black btn-lg">azency@office.com</a>
+          <a href="mailto:webdev@creative-flow.in" class="btn btn-outline-black btn-lg">webdev@creative-flow.in</a>
         </div>
       </div>
     </div>

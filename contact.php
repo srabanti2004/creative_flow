@@ -97,13 +97,13 @@
           <div class="contact-info__item-wrapper flx-between gap-4">
             <div class="contact-info__item">
               <span class="contact-info__text text-capitalize d-block mb-1">Give Us A Call</span>
-              <a href="tel:01812345678" class="contact-info__link font-24 fw-500 text-heading hover-text-main">+91 000
-                000 0000</a>
+              <a href="tel:8159830701" onclick="window.open('tel:8159830701');"
+                class="contact-info__link font-24 fw-500 text-heading hover-text-main">+91 815 983 0701</a>
             </div>
             <div class="contact-info__item">
               <span class="contact-info__text text-capitalize d-block mb-1">Give Us An Email</span>
-              <a href="tel:dpmarket@gmail.com"
-                class="contact-info__link font-24 fw-500 text-heading hover-text-main">creativeFlow@gmail.com</a>
+              <a href="mailto:webdev@creative-flow.in"
+                class="contact-info__link font-24 fw-500 text-heading hover-text-main">webdev@creative-flow.in</a>
             </div>
           </div>
 
@@ -132,7 +132,7 @@
       <div class="col-lg-7 ps-lg-5">
         <div class="card common-card p-sm-4">
           <div class="card-body">
-            <form action="#" autocomplete="off">
+            <form action="#" autocomplete="off" onsubmit="clientToUsemail(); reset(); return false;">
               <div class="row gy-4">
                 <div class="col-sm-12">
                   <label for="name" class="form-label mb-2 font-18 font-heading fw-600">Full Name</label>
@@ -195,5 +195,23 @@
   </div>
 </section>
 <!-- ===================== Newsletter Two End ============================ -->
-
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+  function clientToUsemail() {
+    Email.send({
+      Host: "smtp.gmail.com",
+      Username: "santanu2002giri@gmail.com",
+      Password: "Santanu@2002@",
+      To: 'webdev@creative-flow.in',
+      From: document.getElementById("email").value,
+      Subject: "client's message from creativeFlow",
+      Body: "Name: " + document.getElementById("name").value +
+        "<br> Email: " + document.getElementById("email").value +
+        "<br> Phone number: " + document.getElementById("phone").value +
+        "<br> Message: " + document.getElementById("message").value
+    }).then(
+      message => alert("Message sent successfully. Thank You")
+    );
+  }
+</script>
 <?php include "footer.php"; ?>

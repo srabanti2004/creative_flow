@@ -3834,17 +3834,13 @@ cursor: pointer;
 
 .search-box .icon {
   position: absolute;
-  right: 8px;
   top: 50%;
+  left: 38%;
   transform: translateY(-50%);
-  color: hsl(var(--body-color));
+
+  color: #fff;
 }
 
-@media screen and (max-width: 767px) {
-  .search-box .icon {
-    right: 5px;
-  }
-}
 
 .search-box.style-two {
   max-width: 636px;
@@ -10712,6 +10708,9 @@ cursor: pointer;
     display: none;
   }
 }
+@media screen and (max-width: 420px) {
+  
+}
 
 .working-process-item__number {
   width: clamp(3.75rem, -10.387rem + 22.801vw, 8.125rem);
@@ -11629,6 +11628,12 @@ cursor: pointer;
       padding: 8px;
   }
 }
+@media screen and (max-width: 420px) {
+  .choose-us-item__thumb{
+    height: 400px;
+  }
+  .working-process{margin-top: 0;}
+}
 
 .choose-us-item__icon {
   width: 86px;
@@ -11645,6 +11650,7 @@ cursor: pointer;
 /* ===================== Why Choose Us Css End ========================== */
 
 /* ============================= Working Process Section Css Start ============================ */
+.working-process{margin-top: 250px;}
 
 .working-process-wrapper {
   background-color: hsl(var(--static-black));
