@@ -3552,7 +3552,7 @@ input[type="number"] {
   border: 1px solid hsl(var(--border-color));
   border-radius: 50px;
   padding: 3px 16px;
-  cursor: pointer;
+cursor: pointer;
 }
 
 .call-us-now::before {

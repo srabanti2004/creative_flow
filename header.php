@@ -93,7 +93,7 @@
                 <img src="assets/images/icons/user.svg" alt="" /> </span
               >Create Account
             </a> -->
-                    <div class="call-us-now flx-align">
+                    <div class="call-us-now flx-align" onclick="window.open('tel:8159830701');">
                         <img src="assets/images/icons/phone.svg" alt="" class="globe-icon white-version" />
                         <img src="assets/images/icons/phone_light.svg" alt="" class="globe-icon dark-version" />
                         <span>Call us now</span>
@@ -222,3 +222,8 @@
             </div>
         </header>
         <!-- ==================== Header End Here ==================== -->
+        <script>
+            function makeCall() {
+                window.location.href = "tel:+918159830701"; // Replace with the desired phone number
+            }
+        </script>
