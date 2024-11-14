@@ -74,10 +74,10 @@
                             <li class="nav-submenu__item">
                                 <a href="ourWorks.php" class="nav-submenu__link"> our works</a>
                             </li>
-                            <li class="nav-submenu__item">
+                            <!-- <li class="nav-submenu__item">
                                 <a href="our_team.php" class="nav-submenu__link">
                                     Our Team</a>
-                            </li>
+                            </li> -->
                             <li class="nav-submenu__item">
                                 <a href="faq.php" class="nav-submenu__link"> FAQ's</a>
                             </li>
@@ -170,10 +170,10 @@
                                     <li class="nav-submenu__item">
                                         <a href="#" class="nav-submenu__link"> our works</a>
                                     </li>
-                                    <li class="nav-submenu__item">
+                                    <!-- <li class="nav-submenu__item">
                                         <a href="our_team.php" class="nav-submenu__link">
                                             Our Team</a>
-                                    </li>
+                                    </li> -->
                                     <li class="nav-submenu__item">
                                         <a href="faq.php" class="nav-submenu__link"> FAQ's</a>
                                     </li>
